@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.join.mapper.boardMapper">
+
+    <insert id="insertContent" parameterType="java.util.HashMap">
+        insert into board(
+            subject,
+            content,
+            writer
+        )values(
+            #{subject},
+            #{content},
+            #{writer}
+        )
+    </insert>
+    
+    <insert id="updateContent" parameterType="java.util.HashMap">
+        update
+            board
+        set
+            subject = #{subject},
+            content = #{content},
+            writer = #{writer}
+        where
+            id = #{id}
+    </insert>
+    
+    <select id="selectContentCnt" resultType="int" parameterType="java.util.HashMap">
+        select
+            count(id)
+        from
+            board
+    </select>
+    
+    <select id="selectContent" resultType="com.join.dto.Board" parameterType="java.util.HashMap">
+        select
+            id,
+            subject,
+            content,
+            writer,
+            date_format(register_datetime, '%Y-%m-%d %H:%i:%s') register_datetime
+        from
+            board
+        order by id desc
+        limit #{start}, #{end}
+    </select>
+    
+    <select id="selectContentView" resultType="com.join.dto.Board" parameterType="java.util.HashMap">
+        select
+            id,
+            subject,
+            content,
+            writer,
+            date_format(register_datetime, '%Y-%m-%d %H:%i:%s') register_datetime
+        from
+            board
+        where
+            id = #{id}
+    </select>
+    
+    <insert id="insertBoardReply" parameterType="java.util.HashMap" useGeneratedKeys="true" keyProperty="reply_id">
+        insert into board_reply(
+            board_id,
+            parent_id,
+            depth,
+            reply_content,
+            reply_writer
+        )
+        
+        values(
+            #{board_id},
+            #{parent_id},
+            #{depth},
+            #{reply_content},
+            #{reply_writer}
+        )
+    </insert>
+    
+    <select id="selectBoardReplyList" resultType="com.join.dto.BoardReply" parameterType="java.util.HashMap">
+        select
+            reply_id,
+            board_id,
+            parent_id,
+            depth,
+            reply_content,
+            reply_writer
+        from
+            board_reply
+        where
+            board_id = #{id}
+        order by reply_id asc
+    </select>
+    
+    <delete id="deleteBoardReply" parameterType="java.util.HashMap">
+        delete
+        from
+            board_reply
+        where
+            reply_id = #{reply_id}
+
+    </delete>
+    
+    <delete id="deleteBoardReplyAll" parameterType="java.util.HashMap">
+        delete
+        from
+            board_reply
+        where
+            reply_id in (
+                select
+                    reply_id
+                from
+                (select
+                    reply_id
+                from
+                    board_reply
+                where
+                    reply_id = #{reply_id}) a
+            ) or parent_id in (
+                select
+                    reply_id
+                from
+                (select
+                    reply_id
+                from
+                    board_reply
+                where
+                    reply_id = #{reply_id}) a
+            )
+    </delete>
+    
+    <select id="selectBoardCnt" resultType="int" parameterType="java.util.HashMap">
+        select
+            count(id)
+        from
+            board
+        where
+            id = #{id}
+    </select>
+    
+    <delete id="deleteBoard" parameterType="java.util.HashMap">
+        delete
+        from
+            board
+        where
+            id = #{id}
+    </delete>
+    
+    <select id="selectReplyPassword" resultType="int" parameterType="java.util.HashMap">
+        select
+            count(*)
+        from
+            board_reply
+        where
+            reply_id = #{reply_id}
+    </select>
+    
+    <update id="updateReply" parameterType="java.util.HashMap">
+        update
+            board_reply
+        set
+            parent_id = #{parent_id},
+            depth = #{depth},
+            reply_content = #{reply_content},
+            reply_writer = #{reply_writer}
+        where
+            reply_id = #{reply_id}
+    </update>
+
+</mapper>

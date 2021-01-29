@@ -1,0 +1,22 @@
+/*!
+ * Start Bootstrap - Landing Page v5.0.9 (https://startbootstrap.com/theme/landing-page)
+ * Copyright 2013-2020 Start Bootstrap
+ * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-landing-page/blob/master/LICENSE)
+ */
+    .showcase .showcase-text
+    {
+        padding:1rem
+    }.showcase 
+    .showcase-img{
+        min-height:20rem;
+        background-size:cover
+    }
+    @media (min-width:768px)
+    {
+        .showcase 
+        .showcase-text
+        {
+            padding:5rem
+        }
+    }
+    

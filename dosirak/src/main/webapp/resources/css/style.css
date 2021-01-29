@@ -1,0 +1,93 @@
+/**
+* Template Name: Siimple - v2.1.0
+* Template URL: https://bootstrapmade.com/free-bootstrap-landing-page/
+* Author: BootstrapMade.com
+* License: https://bootstrapmade.com/license/
+*/
+
+
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+.nav-menu {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index: 9999;
+  overflow-y: auto;
+  left: -1020px;
+  width: 260px;
+  padding-top: 18px;
+  background: rgba(34, 34, 34, 0.8);
+  transition: 0.4s;
+}
+
+.nav-menu * {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-menu a {
+  display: block;
+  position: relative;
+  color: #E4E8F0;
+  padding: 10px 20px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
+  color: #7580A1;
+  text-decoration: none;
+}
+
+.nav-menu .drop-down > a:after {
+  padding-left: 10px;
+  position: absolute;
+  left: 15px;
+}
+
+
+.nav-menu .drop-down > a {
+  padding-right: 35px;
+}
+
+.nav-menu .drop-down ul {
+  display: none;
+  overflow: hidden;
+}
+
+.nav-menu .drop-down li {
+  padding-left: 35px;
+}
+
+.nav-menu-active {
+  left: 0;
+}
+
+.nav-toggle {
+  position: fixed;
+  left: 15px;
+  top: 15px;
+  z-index: 9998;
+  border: 0;
+  background: rgba(34, 34, 34, 0.5);
+  transition: all 0.4s;
+  outline: none !important;
+  line-height: 1;
+  cursor: pointer;
+  text-align: left;
+  padding: 10px 12px;
+  border-radius: 2px;
+}
+
+.nav-toggle i {
+  color: #fff;
+  font-size: 18px;
+}
+
+.nav-toggle-active {
+  left: 275px;
+}
+
