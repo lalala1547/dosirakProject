@@ -1,10 +1,23 @@
 # dosirakProject
 
+
+
 2020.12.04 Ver 1.0 완성
 웹, 모바일 기반 식단 기입 프로그램 ─ 도시락 프로젝트
 
+주 언어: JAVA, html, css, JS
+프레임워크: Spring, MyBatis
+DB: MariaDB
+
+
+**시연 동영상**
+: https://www.youtube.com/watch?v=n81YTa_d9hc&feature=youtu.be
+
+도시락 프로젝트 포트폴리오
+: https://drive.google.com/file/d/1apUnriKSVACFxwbstd8AbKLWkwE_i1BI/view?usp=sharing
 
 주요 기능
+0. MVC2 패턴을 사용한 웹 프로젝트 
 1. 회원가입: 이메일 인증 기능
 2. 회원정보 수정 / 탈퇴 기능
 3. 게시판: 페이징, 댓글, 대댓글, 로그인 한 회원만 글쓰기와 댓글 가능. 글쓴이 본인만 수정과 삭제 가능.
