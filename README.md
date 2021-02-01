@@ -6,7 +6,7 @@
 웹, 모바일 기반 식단 기입 프로그램 ─ 도시락 프로젝트
 
 주 언어: JAVA, html, css, JS
-프레임워크: Spring, MyBatis
+프레임워크: Spring, MyBatis, Bootstrap
 DB: MariaDB
 
 
